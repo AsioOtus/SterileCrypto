@@ -1,22 +1,24 @@
 import BigInt
 
+
+
 extension RSA {
-	struct KeyPair {
-		let privateKey: RSA.PrivateKey
+	public struct KeyPair {
+		public let privateKey: RSA.PrivateKey
 		
-		var publicKey: RSA.PublicKey {
+		public var publicKey: RSA.PublicKey {
 			return self.privateKey.publicKey
 		}
 		
-		var keys: (RSA.PrivateKey, RSA.PublicKey) {
+		public var keys: (RSA.PrivateKey, RSA.PublicKey) {
 			return (self.privateKey, self.publicKey)
 		}
 		
-		var size: UInt {
+		public var size: UInt {
 			return self.privateKey.size
 		}
 		
-		init (privateKey: RSA.PrivateKey) {
+		public init (privateKey: RSA.PrivateKey) {
 			self.privateKey = privateKey
 		}
 	}

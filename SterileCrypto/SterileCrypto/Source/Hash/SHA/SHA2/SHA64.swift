@@ -1,8 +1,10 @@
-protocol SHA64 {
+public protocol SHA64 {
 	associatedtype UnsignedInteger: FixedWidthInteger
 }
 
-extension SHA64 {
+
+
+public extension SHA64 {
 	static func ch (_ x: UnsignedInteger, _ y: UnsignedInteger, _ z: UnsignedInteger) -> UnsignedInteger {
 		(x & y) ^ ((~x) & z)
 	}

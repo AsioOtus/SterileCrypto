@@ -1,18 +1,18 @@
 import BigInt
 
 extension RSA {
-	class PrivateKey {
-		let p: BigUInt
-		let q: BigUInt
-		let n: BigUInt
-		let e: BigUInt
-		let d: BigUInt
+	public class PrivateKey {
+		public let p: BigUInt
+		public let q: BigUInt
+		public let n: BigUInt
+		public let e: BigUInt
+		public let d: BigUInt
 		
-		let size: UInt
+		public let size: UInt
 				
-		let publicKey: RSA.PublicKey
+		public let publicKey: RSA.PublicKey
 		
-		init (p: BigUInt, q: BigUInt, e: BigUInt, d: BigUInt) {
+		public init (p: BigUInt, q: BigUInt, e: BigUInt, d: BigUInt) {
 			self.p = p
 			self.q = q
 			self.e = e
@@ -29,7 +29,7 @@ extension RSA {
 
 
 extension RSA.PrivateKey: CustomStringConvertible {
-	var description: String {
+	public var description: String {
 		let description =
 		"""
 		RSA key pair

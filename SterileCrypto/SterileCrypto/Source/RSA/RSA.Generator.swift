@@ -1,18 +1,20 @@
 import Foundation
 import BigInt
 
+
+
 extension RSA {
-	class Generator { }
+	public class Generator { }
 }
 
 
 
 extension RSA.Generator {
-	enum Error: Swift.Error, CustomDebugStringConvertible {
+	public enum Error: Swift.Error, CustomDebugStringConvertible {
 		case keySizeIsSmallerThanMinimalSize(keySize: UInt)
 		case publicExponentHasNotInverseValueWithPhi(e: Data, phi: Data)
 		
-		var debugDescription: String {
+		public var debugDescription: String {
 			let debugDescription: String
 			
 			switch self {
@@ -37,7 +39,7 @@ private extension RSA.Generator {
 
 
 
-extension RSA.Generator {
+public extension RSA.Generator {
 	func generateKeyPair (size keySize: UInt) throws -> RSA.KeyPair {
 		guard keySize > RSA.Generator.Constants.minimalKeySize else { throw Error.keySizeIsSmallerThanMinimalSize(keySize: keySize) }
 		let pqSize = keySize / 2

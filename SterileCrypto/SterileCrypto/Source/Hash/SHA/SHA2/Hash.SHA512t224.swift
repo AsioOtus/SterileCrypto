@@ -1,14 +1,14 @@
 import Foundation
 
 extension Hash {
-	struct SHA512t224: SHA2, SHA64 {
-		typealias UnsignedInteger = UInt64
+	public struct SHA512t224: SHA2, SHA64 {
+		public typealias UnsignedInteger = UInt64
 		
-		static let blockSize = 128
+		public static let blockSize = 128
 		
-		static let h: [UnsignedInteger] = [0x8c3d37c819544da2, 0x73e1996689dcd4d6, 0x1dfab7ae32ff9c82, 0x679dd514582f9fcf, 0x0f6d2b697bd44da8, 0x77e36f7304c48942, 0x3f9d85a86a1d36c8, 0x1112e6ad91d692a1]
+		public static let h: [UnsignedInteger] = [0x8c3d37c819544da2, 0x73e1996689dcd4d6, 0x1dfab7ae32ff9c82, 0x679dd514582f9fcf, 0x0f6d2b697bd44da8, 0x77e36f7304c48942, 0x3f9d85a86a1d36c8, 0x1112e6ad91d692a1]
 		
-		static let k: [UnsignedInteger] = [
+		public static let k: [UnsignedInteger] = [
 			0x428a2f98d728ae22, 0x7137449123ef65cd, 0xb5c0fbcfec4d3b2f, 0xe9b5dba58189dbbc,
 			0x3956c25bf348b538, 0x59f111f1b605d019, 0x923f82a4af194f9b, 0xab1c5ed5da6d8118,
 			0xd807aa98a3030242, 0x12835b0145706fbe, 0x243185be4ee4b28c, 0x550c7dc3d5ffb4e2,
@@ -35,7 +35,7 @@ extension Hash {
 
 
 
-extension Hash.SHA512t224 {
+public extension Hash.SHA512t224 {
 	static func calculateResultHash(_ hh: [UnsignedInteger]) -> Data {
 		let hash = Data(hh[..<224].map{ $0.bigEndian.data }.joined())
 		return hash

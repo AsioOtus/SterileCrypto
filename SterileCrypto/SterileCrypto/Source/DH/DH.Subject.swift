@@ -1,22 +1,22 @@
 extension DH {
-	class Subject {
+	public class Subject {
 		private let generator = DH.Generator()
 		
-		private(set) var privateKey: DH.PrivateKey
-		private(set) var parameters: DH.Parameters
-		private(set) var sharedKey: DH.SharedKey? = nil
+		public private(set) var privateKey: DH.PrivateKey
+		public private(set) var parameters: DH.Parameters
+		public private(set) var sharedKey: DH.SharedKey? = nil
 		
-		var partialKey: DH.PartialKey {
+		public var partialKey: DH.PartialKey {
 			let partialKey = DH.Calculator.calculatePartialKey(privateKey: privateKey, parameters: parameters)
 			return partialKey
 		}
 		
-		var requestingPartialKey: DH.RequestingPartialKey {
+		public var requestingPartialKey: DH.RequestingPartialKey {
 			let requestingPartialKey = DH.Calculator.calculateRequestingPartialKey(privateKey: privateKey, parameters: parameters)
 			return requestingPartialKey
 		}
 		
-		init (keySize: UInt) throws {
+		public init (keySize: UInt) throws {
 			(privateKey, parameters) = try generator.generateValues(privateKeySize: keySize, parametersSize: keySize)
 		}
 	}
@@ -24,7 +24,7 @@ extension DH {
 
 
 
-extension DH.Subject {
+public extension DH.Subject {
 	func regeneratePrivateKey (size: UInt) throws {
 		privateKey = try generator.generatePrivateKey(size: size)
 	}
@@ -36,7 +36,7 @@ extension DH.Subject {
 
 
 
-extension DH.Subject {
+public extension DH.Subject {
 	func createSharedKey (with anotherSubject: DH.Subject) {
 		let respondingPartialKey = anotherSubject.createPartialKey(with: partialKey)
 		createSharedKey(respondingPartialKey: respondingPartialKey)
@@ -55,19 +55,19 @@ extension DH.Subject {
 
 
 
-extension DH.Subject {
-	func createSharedKey2 (with anotherSubject: DH.Subject) {
-		let respondingPartialKey = anotherSubject.createPartialKey(with: requestingPartialKey)
-		createSharedKey(respondingPartialKey: respondingPartialKey)
+public extension DH.Subject {
+	func createSeparatedSharedKey (with anotherSubject: DH.Subject) {
+		let respondingPartialKey = anotherSubject.createSeparatedPartialKey(with: requestingPartialKey)
+		createSeparatedSharedKey(respondingPartialKey: respondingPartialKey)
 	}
 	
-	func createPartialKey (with requestingPartialKey: DH.RequestingPartialKey) -> DH.RespondingPartialKey {
+	func createSeparatedPartialKey (with requestingPartialKey: DH.RequestingPartialKey) -> DH.RespondingPartialKey {
 		sharedKey = DH.Calculator.calculateSharedKey(privateKey: privateKey, requestingPartialKey: requestingPartialKey)
 		let respondingPartialKey = DH.Calculator.calculateRespondingPartialKey(privateKey: privateKey, partialKey: requestingPartialKey)
 		return respondingPartialKey
 	}
 	
-	func createSharedKey (respondingPartialKey: DH.RespondingPartialKey) {
+	func createSeparatedSharedKey (respondingPartialKey: DH.RespondingPartialKey) {
 		sharedKey = DH.Calculator.calculateSharedKey(privateKey: privateKey, publicKey: respondingPartialKey.publicKey, parameters: parameters)
 	}
 }

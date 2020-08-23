@@ -1,6 +1,8 @@
 import Foundation
 
-protocol SHA2: DataPreparable {
+
+
+public protocol SHA2: DataPreparable {
 	associatedtype UnsignedInteger: FixedWidthInteger
 	
 	static var blockSize: Int { get }
@@ -22,7 +24,7 @@ protocol SHA2: DataPreparable {
 
 
 
-extension SHA2 {
+public extension SHA2 {
 	static func hash (_ data: Data) -> Data {
 		let preparedData = prepare(data)
 		let blocks = preparedData.split(blockSize: blockSize)

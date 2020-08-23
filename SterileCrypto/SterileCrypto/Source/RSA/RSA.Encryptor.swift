@@ -1,7 +1,9 @@
 import Foundation
 import BigInt
 
-extension RSA.Encryptor {
+
+
+public extension RSA.Encryptor {
 	static let defaultSettings = RSA.Settings.Cryption(blockSize: 4, entanglementUsing: true, paddingByte: 0xff, paddingEdge: .start)
 	static var settings = defaultSettings
 }
@@ -9,14 +11,14 @@ extension RSA.Encryptor {
 
 
 extension RSA {
-	class Encryptor {
-		let settings: RSA.Settings.Cryption
+	public class Encryptor {
+		public let settings: RSA.Settings.Cryption
 		
-		init (settings: RSA.Settings.Cryption) {
+		public init (settings: RSA.Settings.Cryption) {
 			self.settings = settings
 		}
 		
-		convenience init () {
+		public convenience init () {
 			self.init(settings: Encryptor.defaultSettings)
 		}
 	}
@@ -25,10 +27,10 @@ extension RSA {
 
 
 extension RSA.Encryptor {
-	enum Error: Swift.Error, CustomDebugStringConvertible {
+	public enum Error: Swift.Error, CustomDebugStringConvertible {
 		case blockSizeIsBiggerThanModule(blockSize: Int, moduleSize: Int)
 		
-		var debugDescription: String {
+		public var debugDescription: String {
 			let debugDescription: String
 			
 			switch self {
@@ -43,7 +45,7 @@ extension RSA.Encryptor {
 
 
 
-extension RSA.Encryptor {
+public extension RSA.Encryptor {
 	func encrypt (message: String, publicKey: RSA.PublicKey) throws -> Data {
 		let messageData = message.data(using: .utf8)!
 		let encryptedMessageData = try encrypt(data: messageData, publicKey: publicKey)
@@ -74,7 +76,7 @@ extension RSA.Encryptor {
 
 
 
-extension RSA.Encryptor {
+public extension RSA.Encryptor {
 	func entangle (_ blocks: [Data], _ module: BigUInt) -> [Data] {
 		var entangledBlocks = [Data]()
 		

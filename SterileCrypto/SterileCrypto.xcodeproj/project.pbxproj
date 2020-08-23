@@ -153,17 +153,17 @@
 		3A1C04D924F2E43F00A7DD4F /* DH */ = {
 			isa = PBXGroup;
 			children = (
-				3A1C04DA24F2E43F00A7DD4F /* DH.PartialKey.swift */,
-				3A1C04DB24F2E43F00A7DD4F /* DH.Subject.swift */,
-				3A1C04DC24F2E43F00A7DD4F /* DH.SharedKey.swift */,
-				3A1C04DD24F2E43F00A7DD4F /* DH.swift */,
-				3A1C04DE24F2E43F00A7DD4F /* DH.PrivateKey.swift */,
-				3A1C04DF24F2E43F00A7DD4F /* DH.RequestingPartialKey.swift */,
-				3A1C04E024F2E43F00A7DD4F /* DH.PublicKey.swift */,
+				3A1C04E424F2E43F00A7DD4F /* DH.Calculator.swift */,
 				3A1C04E124F2E43F00A7DD4F /* DH.Generator.swift */,
 				3A1C04E224F2E43F00A7DD4F /* DH.Parameters.swift */,
+				3A1C04DA24F2E43F00A7DD4F /* DH.PartialKey.swift */,
+				3A1C04DE24F2E43F00A7DD4F /* DH.PrivateKey.swift */,
+				3A1C04E024F2E43F00A7DD4F /* DH.PublicKey.swift */,
+				3A1C04DF24F2E43F00A7DD4F /* DH.RequestingPartialKey.swift */,
 				3A1C04E324F2E43F00A7DD4F /* DH.RespondingPartialKey.swift */,
-				3A1C04E424F2E43F00A7DD4F /* DH.Calculator.swift */,
+				3A1C04DC24F2E43F00A7DD4F /* DH.SharedKey.swift */,
+				3A1C04DB24F2E43F00A7DD4F /* DH.Subject.swift */,
+				3A1C04DD24F2E43F00A7DD4F /* DH.swift */,
 			);
 			path = DH;
 			sourceTree = "<group>";
@@ -214,15 +214,15 @@
 		3A1C04F524F2E43F00A7DD4F /* RSA */ = {
 			isa = PBXGroup;
 			children = (
-				3A1C04F624F2E43F00A7DD4F /* RSA.swift */,
-				3A1C04F724F2E43F00A7DD4F /* RSA.Settings.swift */,
-				3A1C04F824F2E43F00A7DD4F /* RSA.KeyPair.swift */,
-				3A1C04F924F2E43F00A7DD4F /* RSA.Signer.swift */,
+				3A1C04FD24F2E43F00A7DD4F /* RSA.Decryptor.swift */,
 				3A1C04FA24F2E43F00A7DD4F /* RSA.Encryptor.swift */,
 				3A1C04FB24F2E43F00A7DD4F /* RSA.Generator.swift */,
-				3A1C04FC24F2E43F00A7DD4F /* RSA.PublicKey.swift */,
-				3A1C04FD24F2E43F00A7DD4F /* RSA.Decryptor.swift */,
+				3A1C04F824F2E43F00A7DD4F /* RSA.KeyPair.swift */,
 				3A1C04FE24F2E43F00A7DD4F /* RSA.PrivateKey.swift */,
+				3A1C04FC24F2E43F00A7DD4F /* RSA.PublicKey.swift */,
+				3A1C04F724F2E43F00A7DD4F /* RSA.Settings.swift */,
+				3A1C04F924F2E43F00A7DD4F /* RSA.Signer.swift */,
+				3A1C04F624F2E43F00A7DD4F /* RSA.swift */,
 				3A1C04FF24F2E43F00A7DD4F /* RSA.Verifier.swift */,
 			);
 			path = RSA;

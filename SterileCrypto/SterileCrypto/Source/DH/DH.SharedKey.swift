@@ -1,10 +1,12 @@
 import BigInt
 
+
+
 extension DH {
-	class SharedKey {
-		let value: BigUInt
+	public class SharedKey {
+		public let value: BigUInt
 		
-		init (_ value: BigUInt) {
+		public init (_ value: BigUInt) {
 			self.value = value
 		}
 	}

@@ -1,13 +1,14 @@
-import Foundation
 import BigInt
 
+
+
 extension DH {
-	class Generator { }
+	public class Generator { }
 }
 
 
 
-extension DH.Generator {
+public extension DH.Generator {
 	func generateValues (privateKeySize: UInt, parametersSize: UInt) throws -> (DH.PrivateKey, DH.Parameters) {
 		let privateKey = try generatePrivateKey(size: privateKeySize)
 		let parameters = try generateParameters(size: parametersSize)
@@ -18,7 +19,7 @@ extension DH.Generator {
 
 
 
-extension DH.Generator {
+public extension DH.Generator {
 	func generatePrivateKey (size: UInt) throws -> DH.PrivateKey {
 		let value = try Math.generatePrimeNumber(size: size)
 		
@@ -29,7 +30,7 @@ extension DH.Generator {
 
 
 
-extension DH.Generator {
+public extension DH.Generator {
 	func generateParameters (size: UInt) throws -> DH.Parameters {
 		let m = try Math.generatePrimeNumber(size: size)
 		let g = try generatePrimeRoot(modulus: m, size: size)

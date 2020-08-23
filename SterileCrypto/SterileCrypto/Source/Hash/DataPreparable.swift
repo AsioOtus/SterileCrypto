@@ -2,13 +2,13 @@ import Foundation
 
 
 
-protocol DataPreparable {
+public protocol DataPreparable {
 	static var blockSize: Int { get }
 }
 
 
 
-extension DataPreparable {
+public extension DataPreparable {
 	static func prepare (_ data: Data) -> Data {
 		let originalDataBytesCount = data.count
 		let originalDataBitsCount = originalDataBytesCount * 8

@@ -1,8 +1,8 @@
 extension DH {
-	class RespondingPartialKey {
-		let publicKey: DH.PublicKey
+	public class RespondingPartialKey {
+		public let publicKey: DH.PublicKey
 		
-		init (publicKey: DH.PublicKey) {
+		public init (publicKey: DH.PublicKey) {
 			self.publicKey = publicKey
 		}
 	}

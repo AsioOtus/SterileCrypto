@@ -1,18 +1,20 @@
 import Foundation
 import BigInt
 
+
+
 extension RSA {
-	class Decryptor {
-		static let defaultSettings = RSA.Settings.Cryption(blockSize: 4, entanglementUsing: true, paddingByte: 0xff, paddingEdge: .start)
-		static var settings = defaultSettings
+	public class Decryptor {
+		public static let defaultSettings = RSA.Settings.Cryption(blockSize: 4, entanglementUsing: true, paddingByte: 0xff, paddingEdge: .start)
+		public static var settings = defaultSettings
 		
-		let settings: RSA.Settings.Cryption
+		public let settings: RSA.Settings.Cryption
 		
-		init (settings: RSA.Settings.Cryption) {
+		public init (settings: RSA.Settings.Cryption) {
 			self.settings = settings
 		}
 		
-		convenience init () {
+		public convenience init () {
 			self.init(settings: Decryptor.defaultSettings)
 		}
 	}
@@ -21,11 +23,11 @@ extension RSA {
 
 
 extension RSA.Decryptor {
-	enum Error: Swift.Error, CustomDebugStringConvertible {
+	public enum Error: Swift.Error, CustomDebugStringConvertible {
 		case pkcs15ControlStartBytesNotFound(firstFourBytes: Data)
 		case pkcs15ControlEndByteNotFound
 		
-		var debugDescription: String {
+		public var debugDescription: String {
 			let debugDescription: String
 			
 			switch self {
@@ -42,7 +44,7 @@ extension RSA.Decryptor {
 
 
 
-extension RSA.Decryptor {
+public extension RSA.Decryptor {
 	func decrypt (messageData: Data, privateKey: RSA.PrivateKey) throws -> String? {
 		let decryptedData = try decrypt(data: messageData, privateKey: privateKey)
 		return String(data: decryptedData, encoding: .utf8)
@@ -74,7 +76,7 @@ extension RSA.Decryptor {
 
 
 
-extension RSA.Decryptor {
+public extension RSA.Decryptor {
 	func untangle (_ blocks: [Data], _ module: BigUInt) -> [Data] {
 		let module = BigInt(module)
 		

@@ -1,1 +1,1 @@
-struct RSA { }
+public struct RSA { }

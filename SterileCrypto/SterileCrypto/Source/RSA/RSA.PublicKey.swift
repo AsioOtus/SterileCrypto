@@ -1,13 +1,13 @@
 import BigInt
 
 extension RSA {
-	class PublicKey {
-		let n: BigUInt
-		let e: BigUInt
+	public class PublicKey {
+		public let n: BigUInt
+		public let e: BigUInt
 		
-		let size: UInt
+		public let size: UInt
 		
-		init (n: BigUInt, e: BigUInt) {
+		public init (n: BigUInt, e: BigUInt) {
 			self.n = n
 			self.e = e
 			
@@ -19,7 +19,7 @@ extension RSA {
 
 
 extension RSA.PublicKey: CustomStringConvertible {
-	var description: String {
+	public var description: String {
 		let description =
 		"""
 		RSA public key

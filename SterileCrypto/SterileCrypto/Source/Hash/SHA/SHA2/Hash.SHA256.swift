@@ -1,14 +1,16 @@
 import Foundation
 
+
+
 extension Hash {
-	struct SHA256: SHA2, SHA32 {
-		typealias UnsignedInteger = UInt32
+	public struct SHA256: SHA2, SHA32 {
+		public typealias UnsignedInteger = UInt32
 		
-		static let blockSize = 64
+		public static let blockSize = 64
 		
-		static let h: [UnsignedInteger] = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]
+		public static let h: [UnsignedInteger] = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]
 		
-		static let k: [UnsignedInteger] = [
+		public static let k: [UnsignedInteger] = [
 			0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
 			0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
 			0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
@@ -23,7 +25,7 @@ extension Hash {
 
 
 
-extension Hash.SHA256 {
+public extension Hash.SHA256 {
 	static func calculateResultHash(_ hh: [UnsignedInteger]) -> Data {
 		let hash = Data(hh.map{ $0.bigEndian.data }.joined())
 		return hash

@@ -1,8 +1,10 @@
-protocol SHA32 {
+public protocol SHA32 {
 	associatedtype UnsignedInteger: FixedWidthInteger
 }
 
-extension SHA32 {
+
+
+public extension SHA32 {
 	static func ch (_ x: UnsignedInteger, _ y: UnsignedInteger, _ z: UnsignedInteger) -> UnsignedInteger {
 		(x & y) ^ ((~x) & z)
 	}

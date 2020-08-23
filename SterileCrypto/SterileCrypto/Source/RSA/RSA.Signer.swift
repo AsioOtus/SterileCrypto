@@ -1,13 +1,15 @@
 import Foundation
 import BigInt
 
+
+
 extension RSA {
-	class Signer {	}
+	public class Signer {	}
 }
 
 
 
-extension RSA.Signer {
+public extension RSA.Signer {
 	func sign (message: String, privateKey: RSA.PrivateKey) -> Data {
 		let messageData = message.data(using: .utf8)!
 		let signatureData = sign(data: messageData, privateKey: privateKey)

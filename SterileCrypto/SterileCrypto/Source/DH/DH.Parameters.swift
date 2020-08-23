@@ -1,11 +1,13 @@
 import BigInt
 
+
+
 extension DH {
-	class Parameters {
-		let g: BigUInt
-		let m: BigUInt
+	public class Parameters {
+		public let g: BigUInt
+		public let m: BigUInt
 		
-		init (g: BigUInt, m: BigUInt) {
+		public init (g: BigUInt, m: BigUInt) {
 			self.g = g
 			self.m = m
 		}
